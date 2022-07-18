@@ -34,14 +34,13 @@ def edges_canny(image, lower_threshold=50, multiplier=2, aperture_size=3):
         canny_img: img with the canny algorithm applyed with the parameters passed
         as argument
     """
-    t_lower = lower_threshold  # Lower Threshold
-    t_upper = multiplier * lower_threshold  # Upper threshold
+    t_lower = lower_threshold
+    t_upper = multiplier * lower_threshold
     if aperture_size in [3, 5, 7]:
-        ap_size = aperture_size  # Aperture size
+        ap_size = aperture_size
     else:
         ap_size = 3
 
-    # Applying the Canny Edge filter
     canny_img = cv.Canny(image, t_lower, t_upper, apertureSize=ap_size)
     return canny_img
 
@@ -111,7 +110,7 @@ def draw_bounding_boxes_contours(gray_image, contours_poly, boundRect, contours)
             0,
             0,
             0,
-        )  # (rng.randint(0,256), rng.randint(0,256), rng.randint(0,256))
+        )
         cv.drawContours(gray_image2, contours_poly, i, color)
         cv.rectangle(
             gray_image2,
@@ -145,7 +144,7 @@ def extract_roi_by_boxes(image, boundRect):
     return rois
 
 
-def extract_roi_black_white(image, boundRect, threshold=170):
+def extract_roi_black_white(image, boundRect, threshold=160):
     """extract roi with black and white
 
     Args:
@@ -177,7 +176,6 @@ def resize_rois(letters_bw):
     """
     resized_letters = []
     for letter_bw in letters_bw:
-        # resized_letter = 255 - resized_letter
         resized_letter = cv.resize(letter_bw, (28, 28), interpolation=cv.INTER_AREA)
         resized_letters.append(resized_letter)
     return resized_letters

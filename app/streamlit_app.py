@@ -27,13 +27,13 @@ if st.session_state.stage == "initial":
     st.image(img_gray)
 
 if st.session_state.stage == "blur":
-    mask_size = st.slider(label="Gaussian mask size", min_value=5, max_value=71)
+    mask_size = st.sidebar.slider(label="Gaussian mask size", min_value=5, max_value=71)
     st.session_state.moment_image = blur_image(
         st.session_state.moment_image, mask_size=mask_size
     )
     st.image(st.session_state.moment_image)
 if st.session_state.stage == "canny":
-    multiplier = st.slider(
+    multiplier = st.sidebar.slider(
         label="Canny multiplier for threshold", min_value=2, max_value=7
     )
     st.session_state.moment_image = edges_canny(
@@ -45,8 +45,10 @@ if st.session_state.stage == "canny":
     st.image(st.session_state.moment_image)
 
 if st.session_state.stage == "dilate":
-    kernel_size = st.slider(label="Kernel size for dilate", min_value=5, max_value=8)
-    interation = st.slider(
+    kernel_size = st.sidebar.slider(
+        label="Kernel size for dilate", min_value=5, max_value=8
+    )
+    interation = st.sidebar.slider(
         label="max iterations for dilate function", min_value=1, max_value=8
     )
     st.session_state.moment_image = dilate_image(
@@ -55,22 +57,26 @@ if st.session_state.stage == "dilate":
     st.image(st.session_state.moment_image)
 
 if st.session_state.stage == "boxes_contours":
-    mask_size = st.slider(label="Gaussian mask size", min_value=5, max_value=71)
+    mask_size = st.sidebar.slider(label="Gaussian mask size", min_value=5, max_value=71)
     st.session_state.moment_image = blur_image(
         st.session_state.moment_image, mask_size=mask_size
     )
-    multiplier = st.slider(
+    multiplier = st.sidebar.slider(
         label="Canny multiplier for threshold", min_value=2, max_value=7
     )
-    aperture = st.slider(label="Canny aperture size", min_value=3, max_value=7, step=2)
+    aperture = st.sidebar.slider(
+        label="Canny aperture size", min_value=3, max_value=7, step=2
+    )
     st.session_state.moment_image = edges_canny(
         st.session_state.moment_image,
         lower_threshold=100,
         multiplier=multiplier,
         aperture_size=aperture,
     )
-    kernel_size = st.slider(label="Kernel size for dilate", min_value=5, max_value=8)
-    interation = st.slider(
+    kernel_size = st.sidebar.slider(
+        label="Kernel size for dilate", min_value=5, max_value=8
+    )
+    interation = st.sidebar.slider(
         label="max iterations for dilate function", min_value=1, max_value=5
     )
     st.session_state.moment_image = dilate_image(
