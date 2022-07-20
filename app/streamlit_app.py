@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 from image_processing import *
 import tensorflow as tf
 
-# import tensorflow as tf
 from tensorflow import keras
 
 img = cv.imread("digitos.jpg")
@@ -113,16 +112,3 @@ if st.session_state.stage == "boxes_contours":
         for i in range(len(resize)):
             st.image(resize[i])
             st.write(np.argmax(predctions[i]))
-        ## except:
-        ##     st.warning(
-        ##         "Alguma coisa deu errado, lembrando que você deve enviar no mínimo duas imagens"
-        ##     )
-
-# if st.session_state.stage == "predict":
-#    st.session_state.rois = rois
-#     for roi in rois:
-#         st.image(roi)
-#     button_r = st.button(label="resize")
-#     if button_r:
-#         st.session_state.stage = "resized"
-# if st.session_state.stage == "resized":
