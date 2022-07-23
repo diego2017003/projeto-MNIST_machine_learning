@@ -1,1 +1,1 @@
-pdi-mlops
+A MNIST mlops study case
