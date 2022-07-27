@@ -2,7 +2,7 @@
 name = "mnist-mlops"
 version = "0.0.1"
 description = "mlops pipeline with tensor-flow for the mnist dataset using concepts of mlops and digital image processing"
-authors = ["Diego Rodrigues Medeiros[diego25rn@gmail.com]"]
+authors = ["Diego Rodrigues Medeiros[diego25rn@gmail.com]","Júlia Guardiani[julia.guardiani.089@ufrn.edu.br]"]
 
 [tool.poetry.dependencies]
 python = ">=3.10, <3.11"
